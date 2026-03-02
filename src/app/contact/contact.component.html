@@ -1,0 +1,18 @@
+<main class="min-h-screen bg-[radial-gradient(circle_at_top_right,#1e3a8a_0%,#020617_52%,#000_100%)] p-4 sm:p-6">
+  <nav class="mx-auto mb-5 flex w-full max-w-[980px] flex-wrap items-center justify-between gap-4 rounded-2xl border border-sky-400/35 bg-slate-950/70 p-4 text-sky-100 shadow-[0_20px_45px_rgba(2,6,23,0.58)] backdrop-blur-md" aria-label="Main navigation">
+    <a class="text-base font-extrabold tracking-[0.08em]" routerLink="/home">S3LS4</a>
+    <div class="order-3 flex w-full gap-2 overflow-x-auto pb-1 sm:order-none sm:w-auto">
+      <a routerLink="/home" routerLinkActive="bg-sky-500/20 border-sky-400/45 text-sky-50" [routerLinkActiveOptions]="{ exact: true }" class="rounded-xl border border-transparent px-3 py-2 text-sm font-semibold text-sky-200/95 transition hover:border-sky-400/35 hover:bg-slate-800/50">{{ 'common.home' | t }}</a>
+      <a routerLink="/about" routerLinkActive="bg-sky-500/20 border-sky-400/45 text-sky-50" class="rounded-xl border border-transparent px-3 py-2 text-sm font-semibold text-sky-200/95 transition hover:border-sky-400/35 hover:bg-slate-800/50">{{ 'common.about' | t }}</a>
+      <a routerLink="/contact" routerLinkActive="bg-sky-500/20 border-sky-400/45 text-sky-50" class="rounded-xl border border-transparent px-3 py-2 text-sm font-semibold text-sky-200/95 transition hover:border-sky-400/35 hover:bg-slate-800/50">{{ 'common.contact' | t }}</a>
+    </div>
+    <a routerLink="/login" class="rounded-xl bg-[linear-gradient(120deg,#0ea5e9,#2563eb)] px-3 py-2 text-sm font-bold text-sky-50">{{ 'common.logout' | t }}</a>
+  </nav>
+
+  <section class="mx-auto w-full max-w-[980px] rounded-2xl border border-sky-400/35 bg-slate-950/70 p-6 text-sky-100 shadow-[0_20px_45px_rgba(2,6,23,0.58)] sm:p-8">
+    <p class="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-sky-200/95">{{ 'contact.eyebrow' | t }}</p>
+    <h1 class="text-4xl font-bold leading-tight sm:text-5xl">{{ 'contact.title' | t }}</h1>
+    <p class="mt-2 text-sky-200/85">{{ 'contact.email' | t }}</p>
+    <p class="mt-1 text-sky-200/85">{{ 'contact.phone' | t }}</p>
+  </section>
+</main>
