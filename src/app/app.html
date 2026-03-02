@@ -1,42 +1,6 @@
-<div
-  class="fixed right-3 top-3 z-[1000] block min-w-max sm:right-4 sm:top-4"
-  aria-label="Language switcher"
->
-  <button
-    type="button"
-    class="flex cursor-pointer items-center gap-2 rounded-xl border border-sky-400/35 bg-slate-950/70 px-2 py-1.5 shadow-[0_12px_24px_rgba(2,6,23,0.5)] backdrop-blur-md transition hover:border-sky-400/55 hover:bg-slate-950/80 sm:px-2.5 sm:py-2"
-    (click)="toggleLanguageMenu($event)"
-  >
-    <img class="h-[18px] w-[18px]" src="/assets/icons/language.svg" [alt]="'common.lang' | t" />
-    <img
-      class="h-[14px] w-5 rounded-[3px] border border-sky-100/35 object-cover"
-      [src]="activeFlag"
-      [alt]="i18nService.language()"
-    />
-  </button>
-
-  <ul
-    class="absolute right-0 top-[calc(100%+8px)] m-0 min-w-[136px] list-none rounded-xl border border-sky-400/35 bg-slate-950/90 p-1.5 shadow-[0_12px_28px_rgba(2,6,23,0.55)] sm:min-w-[150px]"
-    *ngIf="isLanguageMenuOpen"
-  >
-    <li *ngFor="let option of languageOptions">
-      <button
-        type="button"
-        class="flex w-full cursor-pointer items-center gap-2 rounded-lg bg-transparent px-2 py-1.5 text-left text-[0.74rem] font-semibold text-sky-100/95 transition hover:bg-sky-500/20 sm:text-[0.78rem]"
-        (click)="setLanguage(option.code)"
-      >
-        <img
-          class="h-[14px] w-5 rounded-[3px] border border-sky-100/35 object-cover"
-          [src]="option.flag"
-          [alt]="option.code"
-        />
-        <span>{{ option.labelKey | t }}</span>
-      </button>
-    </li>
-  </ul>
-</div>
-
 <div class="relative min-h-screen overflow-hidden">
   <router-outlet></router-outlet>
 </div>
+
+
 

@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 import { NgIf } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { LanguageSwitcherComponent } from '../core/i18n/language-switcher.component';
 import { TranslatePipe } from '../core/i18n/translate.pipe';
 
 @Component({
   selector: 'app-reset-password-verify',
   standalone: true,
-  imports: [RouterLink, NgIf, TranslatePipe],
+  imports: [RouterLink, NgIf, TranslatePipe, LanguageSwitcherComponent],
   templateUrl: './reset-password-verify.component.html',
   styleUrl: './reset-password-verify.component.css'
 })
