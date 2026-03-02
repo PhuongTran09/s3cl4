@@ -1,0 +1,42 @@
+<main class="section-page">
+  <nav class="main-nav" aria-label="Main navigation">
+    <a class="text-base font-extrabold tracking-[0.08em]" routerLink="/home">S3LS4</a>
+    <div class="order-3 flex w-full items-center gap-2 pb-1 sm:order-0 sm:w-auto">
+      <div class="nav-search-wrap flex-1 sm:flex-none">
+        <img src="/assets/icons/search.svg" alt="" class="nav-search-icon" />
+        <input type="text" class="nav-search" placeholder="Search..." />
+      </div>
+
+      <details class="relative sm:hidden">
+        <summary class="nav-link nav-dropdown-trigger cursor-pointer list-none">{{ 'common.contact' | t }}</summary>
+        <div class="nav-dropdown absolute right-0 z-50 mt-2 flex min-w-40 flex-col gap-1 rounded-xl border border-sky-400/35 bg-slate-950/90 p-2 backdrop-blur-md">
+          <a routerLink="/home" routerLinkActive="nav-link-active" [routerLinkActiveOptions]="{ exact: true }" class="nav-link">{{ 'common.home' | t }}</a>
+          <a routerLink="/about" routerLinkActive="nav-link-active" class="nav-link">{{ 'common.about' | t }}</a>
+          <a routerLink="/contact" routerLinkActive="nav-link-active" class="nav-link">{{ 'common.contact' | t }}</a>
+        </div>
+      </details>
+
+      <div class="hidden gap-2 sm:flex">
+        <a routerLink="/home" routerLinkActive="nav-link-active" [routerLinkActiveOptions]="{ exact: true }" class="nav-link">{{ 'common.home' | t }}</a>
+        <a routerLink="/about" routerLinkActive="nav-link-active" class="nav-link">{{ 'common.about' | t }}</a>
+        <a routerLink="/contact" routerLinkActive="nav-link-active" class="nav-link">{{ 'common.contact' | t }}</a>
+      </div>
+    </div>
+    <div class="flex items-center gap-2">
+      <app-language-switcher></app-language-switcher>
+      <a routerLink="/login" class="btn-primary-sm" [attr.aria-label]="'common.logout' | t">
+        <img src="/assets/icons/logout.svg" alt="" class="logout-icon h-4 w-4" />
+      </a>
+    </div>
+  </nav>
+
+  <section class="main-card">
+    <p class="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-sky-200/95">{{ 'contact.eyebrow' | t }}</p>
+    <h1 class="text-4xl font-bold leading-tight sm:text-5xl">{{ 'contact.title' | t }}</h1>
+    <p class="mt-2 text-sky-200/85">{{ 'contact.email' | t }}</p>
+    <p class="mt-1 text-sky-200/85">{{ 'contact.phone' | t }}</p>
+  </section>
+</main>
+
+
+

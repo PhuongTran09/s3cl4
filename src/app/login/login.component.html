@@ -1,0 +1,101 @@
+<main class="auth-page">
+  <div class="absolute right-3 top-3 z-20 sm:right-4 sm:top-4">
+    <app-language-switcher></app-language-switcher>
+  </div>
+  <div class="blob-top"></div>
+  <div class="blob-bottom"></div>
+
+  <section class="auth-split" [class.auth-split-register]="mode === 'register'" aria-label="Authentication form">
+    <aside class="auth-split-side">
+      <p class="auth-split-eyebrow">{{ mode === 'register' ? ('login.welcomeBack' | t) : ('register.eyebrow' | t) }}</p>
+      <h2 class="auth-split-title">{{ mode === 'register' ? ('common.login' | t) : ('register.title' | t) }}</h2>
+      <p class="auth-split-subtitle">
+        {{ mode === 'register' ? ('login.subtitle' | t) : ('register.subtitle' | t) }}
+      </p>
+      <button type="button" class="auth-split-switch-btn" (click)="switchMode(mode === 'login' ? 'register' : 'login')">
+        {{ mode === 'register' ? ('common.login' | t) : ('register.title' | t) }}
+      </button>
+    </aside>
+
+    <div
+      class="auth-split-form"
+      [class.auth-form-switch-to-register]="switchAnimation === 'to-register'"
+      [class.auth-form-switch-to-login]="switchAnimation === 'to-login'"
+    >
+      <ng-container *ngIf="mode === 'login'; else registerForm">
+        <h1 class="text-4xl font-bold leading-tight sm:text-5xl">{{ 'login.title' | t }}</h1>
+        <p class="mb-5 mt-2 text-sky-200/85">{{ 'login.subtitle' | t }}</p>
+
+        <form class="grid gap-3">
+          <label for="email" class="text-sm font-semibold">{{ 'login.email' | t }}</label>
+          <input
+            id="email"
+            type="email"
+            placeholder="you@example.com"
+            (input)="onEmailInput($event)"
+            class="w-full rounded-xl border border-sky-400/35 bg-slate-900/75 px-3.5 py-3 text-sky-100 outline-none transition placeholder:text-sky-200/70 focus:border-sky-300 focus:bg-slate-900/95"
+          />
+
+          <label for="password" class="text-sm font-semibold">{{ 'login.password' | t }}</label>
+          <input
+            id="password"
+            type="password"
+            placeholder="{{ 'login.passwordPlaceholder' | t }}"
+            (input)="onPasswordInput($event)"
+            class="w-full rounded-xl border border-sky-400/35 bg-slate-900/75 px-3.5 py-3 text-sky-100 outline-none transition placeholder:text-sky-200/70 focus:border-sky-300 focus:bg-slate-900/95"
+          />
+          <small class="-mt-1 text-xs text-sky-500" *ngIf="loginErrorKey">{{ loginErrorKey | t }}</small>
+          <a class="justify-self-end text-sm font-semibold text-sky-200 hover:underline" routerLink="/reset-password">{{ 'login.forgotPassword' | t }}</a>
+
+          <button type="button" (click)="login()" class="btn-primary">
+            {{ 'common.login' | t }}
+          </button>
+        </form>
+      </ng-container>
+
+      <ng-template #registerForm>
+        <h1 class="text-4xl font-bold leading-tight sm:text-5xl">{{ 'register.title' | t }}</h1>
+        <p class="mb-5 mt-2 text-sky-200/85">{{ 'register.subtitle' | t }}</p>
+
+        <form class="grid gap-3">
+          <label for="fullName" class="text-sm font-semibold">{{ 'register.fullName' | t }}</label>
+          <input
+            id="fullName"
+            type="text"
+            placeholder="{{ 'register.fullNamePlaceholder' | t }}"
+            (input)="onRegisterNameInput($event)"
+            class="w-full rounded-xl border border-sky-400/35 bg-slate-900/75 px-3.5 py-3 text-sky-100 outline-none transition placeholder:text-sky-200/70 focus:border-sky-300 focus:bg-slate-900/95"
+          />
+
+          <label for="registerEmail" class="text-sm font-semibold">{{ 'login.email' | t }}</label>
+          <input
+            id="registerEmail"
+            type="email"
+            placeholder="you@example.com"
+            (input)="onRegisterEmailInput($event)"
+            class="w-full rounded-xl border border-sky-400/35 bg-slate-900/75 px-3.5 py-3 text-sky-100 outline-none transition placeholder:text-sky-200/70 focus:border-sky-300 focus:bg-slate-900/95"
+          />
+
+          <label for="registerPassword" class="text-sm font-semibold">{{ 'login.password' | t }}</label>
+          <input
+            id="registerPassword"
+            type="password"
+            placeholder="{{ 'register.passwordPlaceholder' | t }}"
+            (input)="onRegisterPasswordInput($event)"
+            class="w-full rounded-xl border border-sky-400/35 bg-slate-900/75 px-3.5 py-3 text-sky-100 outline-none transition placeholder:text-sky-200/70 focus:border-sky-300 focus:bg-slate-900/95"
+          />
+          <small class="-mt-1 text-xs text-sky-500" *ngIf="showRegisterPasswordError">{{ 'register.passwordMin' | t }}</small>
+
+          <button type="button" class="btn-primary" [disabled]="showRegisterPasswordError || !registerPassword" (click)="register()">
+            {{ 'register.createAccount' | t }}
+          </button>
+        </form>
+      </ng-template>
+    </div>
+  </section>
+</main>
+
+
+
+
+

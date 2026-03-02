@@ -1,0 +1,47 @@
+<main class="auth-page">
+  <div class="absolute right-3 top-3 z-20 sm:right-4 sm:top-4">
+    <app-language-switcher></app-language-switcher>
+  </div>
+  <div class="blob-top"></div>
+  <div class="blob-bottom"></div>
+
+  <section class="auth-card" aria-label="Register form">
+    <p class="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-sky-200/95">{{ 'register.eyebrow' | t }}</p>
+    <h1 class="text-4xl font-bold leading-tight sm:text-5xl">{{ 'register.title' | t }}</h1>
+    <p class="mb-5 mt-2 text-sky-200/85">{{ 'register.subtitle' | t }}</p>
+
+    <form class="grid gap-3">
+      <label for="fullName" class="text-sm font-semibold">{{ 'register.fullName' | t }}</label>
+      <input id="fullName" type="text" placeholder="{{ 'register.fullNamePlaceholder' | t }}" class="w-full rounded-xl border border-sky-400/35 bg-slate-900/75 px-3.5 py-3 text-sky-100 outline-none transition placeholder:text-sky-200/70 focus:border-sky-300 focus:bg-slate-900/95" />
+
+      <label for="email" class="text-sm font-semibold">{{ 'login.email' | t }}</label>
+      <input id="email" type="email" placeholder="you@example.com" class="w-full rounded-xl border border-sky-400/35 bg-slate-900/75 px-3.5 py-3 text-sky-100 outline-none transition placeholder:text-sky-200/70 focus:border-sky-300 focus:bg-slate-900/95" />
+
+      <label for="password" class="text-sm font-semibold">{{ 'login.password' | t }}</label>
+      <input
+        id="password"
+        type="password"
+        placeholder="{{ 'register.passwordPlaceholder' | t }}"
+        (input)="onPasswordInput($event)"
+        class="w-full rounded-xl border border-sky-400/35 bg-slate-900/75 px-3.5 py-3 text-sky-100 outline-none transition placeholder:text-sky-200/70 focus:border-sky-300 focus:bg-slate-900/95"
+      />
+      <small class="-mt-1 text-xs text-sky-500" *ngIf="showPasswordError">{{ 'register.passwordMin' | t }}</small>
+
+      <button type="button" routerLink="/home" [disabled]="showPasswordError || !password" class="btn-primary">
+        {{ 'register.createAccount' | t }}
+      </button>
+    </form>
+
+    <p class="mt-4 text-sm text-sky-200/85">
+      {{ 'register.alreadyHave' | t }}
+      <a href="#" (click)="goToLogin($event)" class="font-bold text-sky-200 hover:underline">
+        {{ 'common.login' | t }}
+      </a>
+    </p>
+  </section>
+</main>
+
+
+
+
+
