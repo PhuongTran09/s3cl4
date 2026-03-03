@@ -12,10 +12,10 @@
 
     <form class="grid gap-3">
       <label for="fullName" class="text-sm font-semibold">{{ 'register.fullName' | t }}</label>
-      <input id="fullName" type="text" placeholder="{{ 'register.fullNamePlaceholder' | t }}" class="w-full rounded-xl border border-sky-400/35 bg-slate-900/75 px-3.5 py-3 text-sky-100 outline-none transition placeholder:text-sky-200/70 focus:border-sky-300 focus:bg-slate-900/95" />
+      <input id="fullName" type="text" placeholder="{{ 'register.fullNamePlaceholder' | t }}" class="w-full rounded-xl border border-black bg-slate-900/75 px-3.5 py-3 text-sky-100 outline-none transition placeholder:text-sky-200/70 focus:border-sky-300 focus:bg-slate-900/95" />
 
       <label for="email" class="text-sm font-semibold">{{ 'login.email' | t }}</label>
-      <input id="email" type="email" placeholder="you@example.com" class="w-full rounded-xl border border-sky-400/35 bg-slate-900/75 px-3.5 py-3 text-sky-100 outline-none transition placeholder:text-sky-200/70 focus:border-sky-300 focus:bg-slate-900/95" />
+      <input id="email" type="email" placeholder="you@example.com" class="w-full rounded-xl border border-black bg-slate-900/75 px-3.5 py-3 text-sky-100 outline-none transition placeholder:text-sky-200/70 focus:border-sky-300 focus:bg-slate-900/95" />
 
       <label for="password" class="text-sm font-semibold">{{ 'login.password' | t }}</label>
       <input
@@ -23,7 +23,7 @@
         type="password"
         placeholder="{{ 'register.passwordPlaceholder' | t }}"
         (input)="onPasswordInput($event)"
-        class="w-full rounded-xl border border-sky-400/35 bg-slate-900/75 px-3.5 py-3 text-sky-100 outline-none transition placeholder:text-sky-200/70 focus:border-sky-300 focus:bg-slate-900/95"
+        class="w-full rounded-xl border border-black bg-slate-900/75 px-3.5 py-3 text-sky-100 outline-none transition placeholder:text-sky-200/70 focus:border-sky-300 focus:bg-slate-900/95"
       />
       <small class="-mt-1 text-xs text-sky-500" *ngIf="showPasswordError">{{ 'register.passwordMin' | t }}</small>
 
@@ -40,6 +40,7 @@
     </p>
   </section>
 </main>
+
 
 
 

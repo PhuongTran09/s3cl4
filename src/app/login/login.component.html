@@ -33,7 +33,7 @@
             type="email"
             placeholder="you@example.com"
             (input)="onEmailInput($event)"
-            class="w-full rounded-xl border border-sky-400/35 bg-slate-900/75 px-3.5 py-3 text-sky-100 outline-none transition placeholder:text-sky-200/70 focus:border-sky-300 focus:bg-slate-900/95"
+            class="w-full rounded-xl border border-black bg-slate-900/75 px-3.5 py-3 text-sky-100 outline-none transition placeholder:text-sky-200/70 focus:border-sky-300 focus:bg-slate-900/95"
           />
 
           <label for="password" class="text-sm font-semibold">{{ 'login.password' | t }}</label>
@@ -42,7 +42,7 @@
             type="password"
             placeholder="{{ 'login.passwordPlaceholder' | t }}"
             (input)="onPasswordInput($event)"
-            class="w-full rounded-xl border border-sky-400/35 bg-slate-900/75 px-3.5 py-3 text-sky-100 outline-none transition placeholder:text-sky-200/70 focus:border-sky-300 focus:bg-slate-900/95"
+            class="w-full rounded-xl border border-black bg-slate-900/75 px-3.5 py-3 text-sky-100 outline-none transition placeholder:text-sky-200/70 focus:border-sky-300 focus:bg-slate-900/95"
           />
           <small class="-mt-1 text-xs text-sky-500" *ngIf="loginErrorKey">{{ loginErrorKey | t }}</small>
           <a class="justify-self-end text-sm font-semibold text-sky-200 hover:underline" routerLink="/reset-password">{{ 'login.forgotPassword' | t }}</a>
@@ -64,7 +64,7 @@
             type="text"
             placeholder="{{ 'register.fullNamePlaceholder' | t }}"
             (input)="onRegisterNameInput($event)"
-            class="w-full rounded-xl border border-sky-400/35 bg-slate-900/75 px-3.5 py-3 text-sky-100 outline-none transition placeholder:text-sky-200/70 focus:border-sky-300 focus:bg-slate-900/95"
+            class="w-full rounded-xl border border-black bg-slate-900/75 px-3.5 py-3 text-sky-100 outline-none transition placeholder:text-sky-200/70 focus:border-sky-300 focus:bg-slate-900/95"
           />
 
           <label for="registerEmail" class="text-sm font-semibold">{{ 'login.email' | t }}</label>
@@ -73,7 +73,7 @@
             type="email"
             placeholder="you@example.com"
             (input)="onRegisterEmailInput($event)"
-            class="w-full rounded-xl border border-sky-400/35 bg-slate-900/75 px-3.5 py-3 text-sky-100 outline-none transition placeholder:text-sky-200/70 focus:border-sky-300 focus:bg-slate-900/95"
+            class="w-full rounded-xl border border-black bg-slate-900/75 px-3.5 py-3 text-sky-100 outline-none transition placeholder:text-sky-200/70 focus:border-sky-300 focus:bg-slate-900/95"
           />
 
           <label for="registerPassword" class="text-sm font-semibold">{{ 'login.password' | t }}</label>
@@ -82,7 +82,7 @@
             type="password"
             placeholder="{{ 'register.passwordPlaceholder' | t }}"
             (input)="onRegisterPasswordInput($event)"
-            class="w-full rounded-xl border border-sky-400/35 bg-slate-900/75 px-3.5 py-3 text-sky-100 outline-none transition placeholder:text-sky-200/70 focus:border-sky-300 focus:bg-slate-900/95"
+            class="w-full rounded-xl border border-black bg-slate-900/75 px-3.5 py-3 text-sky-100 outline-none transition placeholder:text-sky-200/70 focus:border-sky-300 focus:bg-slate-900/95"
           />
           <small class="-mt-1 text-xs text-sky-500" *ngIf="showRegisterPasswordError">{{ 'register.passwordMin' | t }}</small>
 
@@ -94,6 +94,7 @@
     </div>
   </section>
 </main>
+
 
 
 

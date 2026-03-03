@@ -1,18 +1,24 @@
 import { Component, HostListener } from '@angular/core';
-import { NgFor } from '@angular/common';
+import { NgFor, NgIf } from '@angular/common';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { LanguageSwitcherComponent } from '../core/i18n/language-switcher.component';
 import { TranslatePipe } from '../core/i18n/translate.pipe';
+import { RandomHorseDirective } from '../shared/random-horse.directive';
+import { ScrollRevealDirective } from '../shared/scroll-reveal.directive';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [NgFor, RouterLink, RouterLinkActive, TranslatePipe, LanguageSwitcherComponent],
+  imports: [NgFor, NgIf, RouterLink, RouterLinkActive, TranslatePipe, LanguageSwitcherComponent, RandomHorseDirective, ScrollRevealDirective],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
   isProductMenuOpen = false;
+  currentScreen = 1;
+  private readonly totalScreens = 2;
+  screenTransitionProgress = 0;
+  isMobileView = false;
 
   readonly productMenuCategories: ReadonlyArray<{ name: string; items: ReadonlyArray<string> }> = [
     { name: 'Monitoring', items: ['Sky Monitor Pro', 'Live Alerts', 'Performance Trends'] },
@@ -65,6 +71,10 @@ export class HomeComponent {
       summary: 'Average response time dropped by 18% after the latest optimization.'
     }
   ];
+
+  constructor() {
+    this.updateViewportMode();
+  }
 
   get totalProductPages(): number {
     return Math.max(1, Math.ceil(this.products.length / this.productPageSize));
@@ -125,5 +135,73 @@ export class HomeComponent {
   onDocumentClick(): void {
     this.isProductMenuOpen = false;
   }
+
+  @HostListener('window:scroll')
+  onWindowScroll(): void {
+    this.updateViewportMode();
+    const scrollY = window.scrollY || document.documentElement.scrollTop || 0;
+    const viewHeight = Math.max(window.innerHeight, 1);
+    const screenIndex = Math.round(scrollY / viewHeight) + 1;
+    this.screenTransitionProgress = Math.min(1, Math.max(0, scrollY / viewHeight));
+    this.currentScreen = Math.min(this.totalScreens, Math.max(1, screenIndex));
+  }
+
+  @HostListener('window:resize')
+  onWindowResize(): void {
+    this.updateViewportMode();
+  }
+
+  get topSectionOpacity(): number {
+    if (this.isMobileView) {
+      return 1;
+    }
+    return Math.max(0, 1 - this.screenTransitionProgress);
+  }
+
+  get topBannerTransform(): string {
+    if (this.isMobileView) {
+      return 'translateX(0px) translateY(0px) scale(1)';
+    }
+    const x = -220 * this.screenTransitionProgress;
+    const y = -40 * this.screenTransitionProgress;
+    const scale = 1 - (0.08 * this.screenTransitionProgress);
+    return `translateX(${x}px) translateY(${y}px) scale(${scale})`;
+  }
+
+  get topSectionBlur(): string {
+    if (this.isMobileView) {
+      return 'blur(0px)';
+    }
+    return `blur(${4 * this.screenTransitionProgress}px)`;
+  }
+
+  getCardOpacity(): number {
+    if (this.isMobileView) {
+      return 1;
+    }
+    return Math.max(0, 1 - this.screenTransitionProgress * 1.05);
+  }
+
+  getCardBlur(): string {
+    if (this.isMobileView) {
+      return 'blur(0px)';
+    }
+    return `blur(${3.2 * this.screenTransitionProgress}px)`;
+  }
+
+  getCardTransform(direction: 1 | -1, strength = 130): string {
+    if (this.isMobileView) {
+      return 'translateX(0px) translateY(0px) scale(1)';
+    }
+    const x = direction * strength * this.screenTransitionProgress;
+    const y = -24 * this.screenTransitionProgress;
+    const scale = 1 - (0.045 * this.screenTransitionProgress);
+    return `translateX(${x}px) translateY(${y}px) scale(${scale})`;
+  }
+
+  private updateViewportMode(): void {
+    this.isMobileView = window.innerWidth < 640;
+  }
+
 }
 

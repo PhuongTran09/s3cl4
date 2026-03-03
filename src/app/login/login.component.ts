@@ -13,7 +13,7 @@ import { TranslatePipe } from '../core/i18n/translate.pipe';
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
-  private readonly demoEmail = 'demo@S3cl4.com';
+  private readonly demoEmail = 'demo@s3cl4.com';
   private readonly demoPassword = 'Demo@123456';
 
   mode: 'login' | 'register' = 'login';
@@ -102,4 +102,3 @@ export class LoginComponent {
     this.location.replaceState(mode === 'login' ? '/login' : '/register');
   }
 }
-

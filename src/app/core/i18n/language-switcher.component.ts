@@ -44,11 +44,11 @@ import { AppLanguage } from './translations';
 
         <span
           *ngIf="isLanguageMenuOpen"
-          class="lang-menu-arrow pointer-events-none absolute right-4 top-[calc(100%+3px)] z-1001 h-2.5 w-2.5 rotate-45 border-l border-t border-sky-400/35 bg-slate-950/90"
+          class="lang-menu-arrow pointer-events-none absolute right-4 top-[calc(100%+3px)] z-[100000] h-2.5 w-2.5 rotate-45 border-l border-t border-sky-400/35 bg-slate-950/90"
         ></span>
 
         <ul
-          class="lang-menu absolute right-0 top-[calc(100%+7px)] z-1000 m-0 min-w-34 list-none rounded-xl border border-sky-400/35 bg-slate-950/90 p-1.5 sm:min-w-37.5"
+          class="lang-menu absolute right-0 top-[calc(100%+7px)] z-[99999] m-0 min-w-34 list-none rounded-xl border border-sky-400/35 bg-slate-950/90 p-1.5 sm:min-w-37.5"
           *ngIf="isLanguageMenuOpen"
         >
           <li *ngFor="let option of languageOptions">

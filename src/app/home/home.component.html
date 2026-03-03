@@ -11,6 +11,22 @@
         </svg>
       </span>
     </button>
+
+  <aside class="right-rail right-rail-show" aria-hidden="true">
+    <div class="right-rail-dots">
+      <span class="right-rail-dot right-rail-dot-anchor" [class.right-rail-dot-active]="currentScreen === 1">
+        <div class="right-rail-cards" *ngIf="currentScreen === 1">
+          <article class="right-rail-card right-rail-card-long">Home</article>
+        </div>
+      </span>
+      <span class="right-rail-dot right-rail-dot-anchor" [class.right-rail-dot-active]="currentScreen === 2">
+        <div class="right-rail-cards" *ngIf="currentScreen === 2">
+          <article class="right-rail-card right-rail-card-long">Import Card</article>
+        </div>
+      </span>
+    </div>
+  </aside>
+
   <div
     class="products-panel z-70 border-r border-sky-400/35 bg-slate-950/92 p-4 backdrop-blur-md"
     [class.products-panel-open]="isProductMenuOpen"
@@ -61,15 +77,51 @@
     </div>
   </nav>
 
-  <section class="mx-auto grid w-full max-w-245 gap-5 lg:grid-cols-[minmax(0,1fr)_20rem]">
+  <section
+    class="main-banner section-screen-transition"
+    [style.opacity]="topSectionOpacity"
+    [style.transform]="topBannerTransform"
+    [style.filter]="topSectionBlur"
+    [style.pointer-events]="screenTransitionProgress > 0.96 ? 'none' : 'auto'"
+    appScrollReveal
+    aria-label="Page announcement"
+  >
+    <div class="main-banner-stars" aria-hidden="true"></div>
+    <div class="main-banner-meteors" aria-hidden="true"></div>
+    <div class="main-banner-sun" aria-hidden="true"></div>
+    <div class="main-banner-moon" aria-hidden="true"></div>
+    <div class="main-banner-clouds" aria-hidden="true"></div>
+    <div class="main-banner-tree" aria-hidden="true"></div>    <div class="main-banner-mountains" aria-hidden="true"></div>
+    <div class="main-banner-horse-lane" aria-hidden="true">
+      <span class="main-banner-horse" appRandomHorse><span class="main-banner-horse-glyph">&#128014;</span></span>
+    </div>
+    <div class="main-banner-grass" aria-hidden="true"></div>
+  </section>
+
+  <section
+    class="mx-auto grid w-full max-w-245 gap-5 lg:grid-cols-[minmax(0,1fr)_20rem] section-screen-transition"
+    [style.opacity]="topSectionOpacity"
+    [style.pointer-events]="screenTransitionProgress > 0.96 ? 'none' : 'auto'"
+    appScrollReveal
+  >
     <div class="grid gap-5">
-      <div class="main-card mx-0 max-w-none">
+      <div
+        class="main-card scroll-slide-card mx-0 max-w-none"
+        [style.opacity]="getCardOpacity()"
+        [style.transform]="getCardTransform(-1, 170)"
+        [style.filter]="getCardBlur()"
+      >
         <p class="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-sky-200/95">{{ 'home.eyebrow' | t }}</p>
         <h1 class="text-4xl font-bold leading-tight sm:text-5xl">{{ 'home.title' | t }}</h1>
         <p class="mt-2 text-sky-200/85">{{ 'home.subtitle' | t }}</p>
       </div>
 
-      <div class="main-card mx-0 max-w-none">
+      <div
+        class="main-card scroll-slide-card mx-0 max-w-none"
+        [style.opacity]="getCardOpacity()"
+        [style.transform]="getCardTransform(1, 200)"
+        [style.filter]="getCardBlur()"
+      >
         <div class="mb-3 flex items-center justify-between">
           <h2 class="text-lg font-bold">Products</h2>
           <span class="text-xs text-sky-200/80">Mock Data</span>
@@ -91,7 +143,12 @@
       </div>
     </div>
 
-    <aside class="main-card mx-0 h-fit max-w-none">
+    <aside
+      class="main-card scroll-slide-card mx-0 h-fit max-w-none"
+      [style.opacity]="getCardOpacity()"
+      [style.transform]="getCardTransform(-1, 190)"
+      [style.filter]="getCardBlur()"
+    >
       <div class="mb-3 flex items-center justify-between">
         <h2 class="text-lg font-bold">News</h2>
         <span class="text-xs text-sky-200/80">Mock Data</span>
@@ -112,7 +169,37 @@
       </div>
     </aside>
   </section>
+
+  <section class="mx-auto mt-5 w-full max-w-245 screen-two-section" *ngIf="currentScreen === 2" appScrollReveal>
+    <div class="main-card mx-0 max-w-none">
+      <p class="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-sky-200/95">Demo Section</p>
+      <h2 class="text-2xl font-bold leading-tight">Demo Card</h2>
+      <p class="mt-2 text-sky-200/85">Section nay chi hien thi khi currentScreen = 2.</p>
+    </div>
+  </section>
 </main>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

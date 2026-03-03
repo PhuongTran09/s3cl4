@@ -1,4 +1,19 @@
 <main class="section-page">
+  <aside class="right-rail right-rail-show" aria-hidden="true">
+    <div class="right-rail-dots">
+      <span class="right-rail-dot right-rail-dot-anchor" [class.right-rail-dot-active]="currentScreen === 1">
+        <div class="right-rail-cards" *ngIf="currentScreen === 1">
+          <article class="right-rail-card right-rail-card-long">Home</article>
+        </div>
+      </span>
+      <span class="right-rail-dot right-rail-dot-anchor" [class.right-rail-dot-active]="currentScreen === 2">
+        <div class="right-rail-cards" *ngIf="currentScreen === 2">
+          <article class="right-rail-card right-rail-card-long">Import Card</article>
+        </div>
+      </span>
+    </div>
+  </aside>
+
   <nav class="main-nav" aria-label="Main navigation">
     <a class="text-base font-extrabold tracking-[0.08em]" routerLink="/home">S3cl4</a>
     <div class="order-3 flex w-full items-center gap-2 pb-1 sm:order-0 sm:w-auto">
@@ -30,13 +45,49 @@
     </div>
   </nav>
 
-  <section class="main-card">
+  <section class="main-banner" appScrollReveal aria-label="Page announcement">
+    <div class="main-banner-stars" aria-hidden="true"></div>
+    <div class="main-banner-meteors" aria-hidden="true"></div>
+    <div class="main-banner-sun" aria-hidden="true"></div>
+    <div class="main-banner-moon" aria-hidden="true"></div>
+    <div class="main-banner-clouds" aria-hidden="true"></div>
+    <div class="main-banner-tree" aria-hidden="true"></div>    <div class="main-banner-mountains" aria-hidden="true"></div>
+    <div class="main-banner-horse-lane" aria-hidden="true">
+      <span class="main-banner-horse" appRandomHorse><span class="main-banner-horse-glyph">&#128014;</span></span>
+    </div>
+    <div class="main-banner-grass" aria-hidden="true"></div>
+  </section>
+
+  <section class="main-card" appScrollReveal>
     <p class="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-sky-200/95">{{ 'contact.eyebrow' | t }}</p>
     <h1 class="text-4xl font-bold leading-tight sm:text-5xl">{{ 'contact.title' | t }}</h1>
     <p class="mt-2 text-sky-200/85">{{ 'contact.email' | t }}</p>
     <p class="mt-1 text-sky-200/85">{{ 'contact.phone' | t }}</p>
   </section>
 </main>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
