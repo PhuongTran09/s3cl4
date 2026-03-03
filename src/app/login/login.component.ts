@@ -13,7 +13,7 @@ import { TranslatePipe } from '../core/i18n/translate.pipe';
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
-  private readonly demoEmail = 'demo@s3ls4.com';
+  private readonly demoEmail = 'demo@S3cl4.com';
   private readonly demoPassword = 'Demo@123456';
 
   mode: 'login' | 'register' = 'login';

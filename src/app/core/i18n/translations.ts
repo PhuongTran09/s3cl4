@@ -47,11 +47,11 @@ export const TRANSLATIONS: Record<AppLanguage, Record<string, string>> = {
     'home.title': 'Welcome back',
     'home.subtitle': 'This is your home page after signing in.',
     'about.eyebrow': 'About',
-    'about.title': 'About S3LS4',
-    'about.subtitle': 'S3LS4 is a demo Angular application for login, registration, OTP flow, and password reset.',
+    'about.title': 'About S3cl4',
+    'about.subtitle': 'S3cl4 is a demo Angular application for login, registration, OTP flow, and password reset.',
     'contact.eyebrow': 'Contact',
     'contact.title': 'Contact',
-    'contact.email': 'Email: support@s3ls4.com',
+    'contact.email': 'Email: support@S3cl4.com',
     'contact.phone': 'Phone: +1 (555) 123-4567'
   },
   vi: {
@@ -106,12 +106,12 @@ export const TRANSLATIONS: Record<AppLanguage, Record<string, string>> = {
     'home.subtitle': 'Đây là trang chủ sau khi đăng nhập.',
 
     'about.eyebrow': 'Giới thiệu',
-    'about.title': 'Về S3LS4',
-    'about.subtitle': 'S3LS4 là ứng dụng Angular demo cho đăng nhập, đăng ký, OTP và đặt lại mật khẩu.',
+    'about.title': 'Về S3cl4',
+    'about.subtitle': 'S3cl4 là ứng dụng Angular demo cho đăng nhập, đăng ký, OTP và đặt lại mật khẩu.',
 
     'contact.eyebrow': 'Liên hệ',
     'contact.title': 'Liên hệ',
-    'contact.email': 'Email: support@s3ls4.com',
+    'contact.email': 'Email: support@S3cl4.com',
     'contact.phone': 'Số điện thoại: +1 (555) 123-4567'
   }
 };
