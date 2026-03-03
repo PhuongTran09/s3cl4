@@ -7,7 +7,7 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "s3ls4": {
+    "S3cl4": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -57,10 +57,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "s3ls4:build:production"
+              "buildTarget": "S3cl4:build:production"
             },
             "development": {
-              "buildTarget": "s3ls4:build:development"
+              "buildTarget": "S3cl4:build:development"
             }
           },
           "defaultConfiguration": "development"
